@@ -1,0 +1,7 @@
+{
+  "name": "HLM Jan Sewa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
