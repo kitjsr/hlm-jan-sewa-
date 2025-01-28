@@ -82,7 +82,7 @@ const Booking: React.FC = () => {
           ]
         },
         {
-          panchayatName: "Tilla",
+          panchayatName: "तिल्ला",
           villages: [
             { villageName: "तिल्ला", population: 2000 },
             { villageName: "जामडीह", population: 2000 },
@@ -104,7 +104,7 @@ const Booking: React.FC = () => {
           ]
         },
         {
-          panchayatName: "Gunda",
+          panchayatName: "गुण्डा",
           villages: [
             { villageName: "गुण्डा नीच कुली", population: 2000 },
             { villageName: "गुण्डा उपर कुली", population: 2000 },
@@ -125,24 +125,648 @@ const Booking: React.FC = () => {
             { villageName: "पहाडधार", population: 2000 }
           ]
         },
+
+
         {
-          panchayatName: "Gunday",
-          villages: [{ villageName: "तिल्ला", population: 2000 }],
+          panchayatName: "आदारडीह",
+          villages: [
+            { villageName: "रघुनाथपुर", population: 2000 },
+            { villageName: "आदारडीह", population: 2000 },
+            { villageName: "बैसटमडीह", population: 2000 },
+            { villageName: "विशारडीह", population: 2000 },
+            { villageName: "कामारटोला", population: 2000 },
+            { villageName: "बोरडीह", population: 2000 },
+            { villageName: "जुगीटोला", population: 2000 },
+            { villageName: "सिधागोड़ा टोला", population: 2000 },
+            { villageName: "कुरकुट वन टोला", population: 2000 },
+
+          ]
         },
+        {
+          panchayatName: "टेंगाडीह",
+          villages: [
+
+            { villageName: "टेंगाडीह", population: 2000 },
+            { villageName: "मातकमडीह", population: 2000 },
+            { villageName: "घाघारी", population: 2000 },
+            { villageName: "बेनाडीह", population: 2000 },
+            { villageName: "राहेरडीह", population: 2000 },
+            { villageName: "जांता", population: 2000 },
+            { villageName: "जामडीह", population: 2000 },
+            { villageName: "झरीडीह", population: 2000 },
+            { villageName: "घोटाँड", population: 2000 },
+            { villageName: "शशनडीह", population: 2000 },
+            { villageName: "तेंतलो", population: 2000 },
+            { villageName: "पाथरडीह", population: 2000 },
+            { villageName: "रोबेडीह", population: 2000 },
+            { villageName: "खडियाबस्ती", population: 2000 },
+            { villageName: "बाधाडीह", population: 2000 },
+            { villageName: "ओटोसिमुल", population: 2000 },
+            { villageName: "रुपाडीह", population: 2000 },
+            { villageName: "कामाडुलु", population: 2000 },
+            { villageName: "जांता हरिजन टोला", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "झिमरी",
+          villages: [
+
+            { villageName: "झिमरी", population: 2000 },
+            { villageName: "रुगड़ीकुली", population: 2000 },
+            { villageName: "कानुकुली", population: 2000 },
+            { villageName: "मलीकुली", population: 2000 },
+            { villageName: "कारतारटांड", population: 2000 },
+            { villageName: "कुम्हार कुली", population: 2000 },
+            { villageName: "झिमरी कुली", population: 2000 },
+            { villageName: "मकरुटांड", population: 2000 },
+            { villageName: "नीमकुली", population: 2000 },
+            { villageName: "बांधडीह", population: 2000 },
+            { villageName: "पलाश बागान", population: 2000 },
+            { villageName: "रामगढ़ टांड", population: 2000 },
+            { villageName: "लोडीह", population: 2000 },
+            { villageName: "झिमरी टोला", population: 2000 },
+            { villageName: "मुरु ", population: 2000 },
+            { villageName: "काशीकुली", population: 2000 },
+            { villageName: "महुलटांड", population: 2000 },
+            { villageName: "बेडाटोला", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "लुपुंगडीह",
+          villages: [
+
+            { villageName: "लुपुंगडीह", population: 2000 },
+            { villageName: "बाँदकुली", population: 2000 },
+            { villageName: "रोडकुली", population: 2000 },
+            { villageName: "डुमरडीह", population: 2000 },
+            { villageName: "जाहिरा", population: 2000 },
+            { villageName: "चिगडीडीह", population: 2000 },
+            { villageName: "ऊपर पितकी", population: 2000 },
+            { villageName: "पितकी", population: 2000 },
+            { villageName: "हरकिनटांड", population: 2000 },
+            { villageName: "उहुकडीह", population: 2000 },
+            { villageName: "बुरुडूगरी", population: 2000 },
+            { villageName: "स्टेशन बस्ती", population: 2000 },
+            { villageName: "बाना", population: 2000 },
+            { villageName: "बातकम कोचा", population: 2000 },
+            { villageName: "तनकोचा", population: 2000 },
+          ]
+        },
+        {
+          panchayatName: "लाकडी",
+          villages: [
+
+
+            { villageName: "लाकडी", population: 2000 },
+            { villageName: "माकली टोला", population: 2000 },
+            { villageName: "(बान्दु) डूँगरीडीह", population: 2000 },
+            { villageName: "डुगरीपार", population: 2000 },
+            { villageName: "तिलाईटांड ", population: 2000 },
+            { villageName: "लेवाटांड", population: 2000 },
+            { villageName: "बुरुडीह", population: 2000 },
+            { villageName: "बागडी", population: 2000 },
+            { villageName: "शान्तिपुर", population: 2000 },
+            { villageName: "सालटांड", population: 2000 },
+            { villageName: "बान्दु", population: 2000 },
+            { villageName: "वनघर", population: 2000 },
+            { villageName: "कादला", population: 2000 },
+            { villageName: "शासनघर", population: 2000 },
+            { villageName: "पुरियारा", population: 2000 },
+            { villageName: "चाटुडुंगरी", population: 2000 },
+          ]
+        },
+        {
+          panchayatName: "चिंगडा पारकीडीह",
+          villages: [
+
+
+            { villageName: "चातरमा", population: 2000 },
+            { villageName: "जुगिलौंग", population: 2000 },
+            { villageName: "चिंगडा पारकीडीह", population: 2000 },
+            { villageName: "हुण्डरु पाथरडीह", population: 2000 },
+            { villageName: "हुचुकडीह", population: 2000 },
+            { villageName: "आगोयटांड", population: 2000 },
+            { villageName: "जोजोडीह", population: 2000 },
+            { villageName: "कुमारडीह", population: 2000 },
+            { villageName: "महतोडीह", population: 2000 },
+            { villageName: "डाँगारडीह", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "गोरडीह",
+          villages: [
+
+            { villageName: "घुटियाडीह", population: 2000 },
+            { villageName: "केतुंगा", population: 2000 },
+            { villageName: "नीमडीह", population: 2000 },
+            { villageName: "गोरडीह ", population: 2000 },
+            { villageName: "संगीरा ", population: 2000 },
+            { villageName: "बनडीह ", population: 2000 },
+            { villageName: "लवाबेरा", population: 2000 },
+            { villageName: "गोरीडीह", population: 2000 },
+            { villageName: "रंगाटांड टोला", population: 2000 },
+            { villageName: "बाँधटांड", population: 2000 },
+          ]
+        },
+        {
+          panchayatName: "सामानपुर",
+          villages: [
+
+
+            { villageName: "बामनी", population: 2000 },
+            { villageName: "सामानपुर", population: 2000 },
+            { villageName: "माकुला", population: 2000 },
+            { villageName: "पुरनापानी", population: 2000 },
+            { villageName: "हुरलुंग", population: 2000 },
+            { villageName: "हाकासारा", population: 2000 },
+            { villageName: "मुदीडीह", population: 2000 },
+            { villageName: "राजागोड़ा", population: 2000 },
+            { villageName: "ऊपरडीह", population: 2000 },
+            { villageName: "तिलाटांड", population: 2000 },
+            { villageName: "तेतुलघुटा", population: 2000 },
+            { villageName: "माझीडीह", population: 2000 },
+            { villageName: "बनडीह", population: 2000 },
+            { villageName: "चिरुगोड़ा", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "बाडेदा",
+          villages: [
+
+            { villageName: "बाडेदा", population: 2000 },
+            { villageName: "बुडिवासा टोला", population: 2000 },
+            { villageName: "सरदारडीह", population: 2000 },
+            { villageName: "हाटकुन्दा", population: 2000 },
+            { villageName: "कुलटांड", population: 2000 },
+            { villageName: "जुगिडीह", population: 2000 },
+            { villageName: "धवडुँगरी", population: 2000 },
+            { villageName: "भाटिंग", population: 2000 },
+            { villageName: "बस्टमडुंरी", population: 2000 },
+            { villageName: "निपानीया", population: 2000 },
+            { villageName: "केन्दडी", population: 2000 },
+            { villageName: "सब्बरपाड़ा", population: 2000 },
+            { villageName: "ऊपरआहार", population: 2000 },
+            { villageName: "बुरुगोड़ा", population: 2000 },
+            { villageName: "डागाँर", population: 2000 },
+            { villageName: "सियालगोड़ा", population: 2000 },
+            { villageName: "काशीडीह", population: 2000 },
+            { villageName: "रापकाटा", population: 2000 },
+            { villageName: "भूषणडीह", population: 2000 },
+            { villageName: "बुरूडीह", population: 2000 },
+            { villageName: "मधुपुर", population: 2000 },
+            { villageName: "केन्दडी टोला", population: 2000 },
+            { villageName: "राजागोड़ा", population: 2000 },
+            { villageName: "भागाँट", population: 2000 },
+            { villageName: "राकांर", population: 2000 },
+            { villageName: "बादटांड", population: 2000 },
+            { villageName: "चिरूगोड़ा", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "हेवेन",
+          villages: [
+
+
+            { villageName: "अण्डा ", population: 2000 },
+            { villageName: "रांगाडीह टोला", population: 2000 },
+            { villageName: "हुटु ", population: 2000 },
+            { villageName: "खेडवन", population: 2000 },
+            { villageName: "कल्याणपुर ", population: 2000 },
+            { villageName: "तिलाईटांड", population: 2000 },
+            { villageName: "धातकीडीह", population: 2000 },
+            { villageName: "वांधकुल्ही", population: 2000 },
+            { villageName: "काशीपुर", population: 2000 },
+            { villageName: "माझीडीह", population: 2000 },
+            { villageName: "हेवेन", population: 2000 },
+            { villageName: "हेवेन -2", population: 2000 },
+            { villageName: "जामडीह कुल्ही", population: 2000 },
+            { villageName: "टांडघर", population: 2000 },
+            { villageName: "पाहड़धार", population: 2000 },
+            { villageName: "काशीटांड", population: 2000 },
+            { villageName: "मुरुगडीह", population: 2000 },
+            { villageName: "माझीडीह", population: 2000 },
+            { villageName: "वाइजनडीह", population: 2000 },
+          ]
+        }
       ],
     },
+    {
+      blockName: "Chandil",
+      panchayats: [
+        {
+          panchayatName: "आसनबनी",
+          villages: [
+            { villageName: "शहरबेडा", population: 2000 },
+            { villageName: "शहरबेडा -2", population: 2000 },
+            { villageName: "शहरबेडा -3", population: 2000 },
+            { villageName: "टुईलुगू ", population: 2000 },
+            { villageName: "उदेलबेड़ा", population: 2000 },
+            { villageName: "पाथरडीह ", population: 2000 },
+            { villageName: "कान्दरबेडा ", population: 2000 },
+            { villageName: "कान्दरबेडा -2", population: 2000 },
+            { villageName: "आसनबनी", population: 2000 },
+            { villageName: "आसनबनी -2", population: 2000 },
+            { villageName: "खोलगोड़ा", population: 2000 },
+            { villageName: "बिरीगोडा", population: 2000 },
+            { villageName: "राहराडीह ", population: 2000 },
+            { villageName: "रागाटांड ", population: 2000 },
+            { villageName: "रामगढ़", population: 2000 },
+            { villageName: "कालीमंदिर", population: 2000 },
+            { villageName: "रागाटांड", population: 2000 },
+            { villageName: "सरस्वती नगर", population: 2000 },
+            { villageName: "तालगोड़ा ", population: 2000 },
+            { villageName: "जामडीह", population: 2000 },
+            { villageName: "साहीझरणा ", population: 2000 },
+            { villageName: "फदलोगोड़ा -", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "BHADUDIH",
+          villages: [
+
+            { villageName: "BADALAKHA", population: 2000 },
+            { villageName: "BHADUDIH", population: 2000 },
+            { villageName: "CHOTALAKHA", population: 2000 },
+            { villageName: "HUMID", population: 2000 },
+            { villageName: "HUMSADA", population: 2000 },
+            { villageName: "JARIYADIH", population: 2000 },
+            { villageName: "MANIKUI", population: 2000 },
+            { villageName: "GURADIH", population: 2000 },
+            { villageName: "HARUDIH", population: 2000 },
+            { villageName: "DHATKIDIH TOLA", population: 2000 },
+            { villageName: "PATHARDIH", population: 2000 },
+            { villageName: "KARAMGORA", population: 2000 },
+            { villageName: "MUDIDIH", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "चिलगु",
+          villages: [
+
+            { villageName: "काठ़जोड़", population: 2000 },
+            { villageName: "तुलिन", population: 2000 },
+            { villageName: "कदमझोर", population: 2000 },
+            { villageName: "बागलडीह", population: 2000 },
+            { villageName: "भुईयाडीह", population: 2000 },
+            { villageName: "करणीडीह", population: 2000 },
+            { villageName: "सालगाडीह", population: 2000 },
+            { villageName: "चिलगूडीह", population: 2000 },
+            { villageName: "चाकुलिया", population: 2000 },
+            { villageName: "चिलगु", population: 2000 },
+            { villageName: "जनडीह", population: 2000 },
+            { villageName: "माकुलाकोचा", population: 2000 },
+            { villageName: "BHUIADIH", population: 2000 },
+            { villageName: "PATHARDIH", population: 2000 },
+            { villageName: "CHILGU ", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "चौका",
+          villages: [
+
+            { villageName: "दुबराजपुर ", population: 2000 },
+            { villageName: "बड़डीह टोला", population: 2000 },
+            { villageName: "टूइडुंगरी", population: 2000 },
+            { villageName: "रोयाडीह ", population: 2000 },
+            { villageName: "चादुडीह ", population: 2000 },
+            { villageName: "बड़टांड ", population: 2000 },
+            { villageName: "चौका", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "चावलीबासा",
+          villages: [
+
+            { villageName: "सिगाती  ", population: 2000 },
+            { villageName: "रुगडी", population: 2000 },
+            { villageName: "बादलाडीह", population: 2000 },
+            { villageName: "बांधडीह  ", population: 2000 },
+            { villageName: "काशीडीह", population: 2000 },
+            { villageName: "महतोडीह", population: 2000 },
+            { villageName: "पाथराखुन", population: 2000 },
+            { villageName: "चावलीबासा", population: 2000 },
+            { villageName: "बड़ामटांड", population: 2000 },
+            { villageName: "BANDHDIH", population: 2000 },
+            { villageName: "BADAMTAND TOLA", population: 2000 },
+          ]
+        },
+        {
+          panchayatName: "धुनाबुरु",
+          villages: [
+
+
+            { villageName: "बालीडीह", population: 2000 },
+            { villageName: "तुलग्राम", population: 2000 },
+            { villageName: "कोड़ाबुरु", population: 2000 },
+            { villageName: "दुलमी", population: 2000 },
+            { villageName: "पालगम", population: 2000 },
+            { villageName: "छतरडीह", population: 2000 },
+            { villageName: "सोनालटांड", population: 2000 },
+            { villageName: "डुमकाडीह", population: 2000 },
+            { villageName: "बांसा", population: 2000 },
+            { villageName: "पहाड़पुर", population: 2000 },
+            { villageName: "बेगुनाडीह", population: 2000 },
+            { villageName: "छतरडीह", population: 2000 },
+            { villageName: "नतुनडीह", population: 2000 },
+            { villageName: "खुँचीडीह", population: 2000 },
+            { villageName: "बुलानडीह", population: 2000 },
+            { villageName: "लाकड़ा गाड़ा", population: 2000 },
+            { villageName: "चिरूगोड़ा", population: 2000 },
+            { villageName: "केंदुआडीह", population: 2000 },
+            { villageName: "धुनाबुरु", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "तामोलिया",
+          villages: [
+
+
+            { villageName: "तामोलिया", population: 2000 },
+            { villageName: "काड़घरा", population: 2000 },
+            { villageName: "डुंगरीखुली", population: 2000 },
+            { villageName: "शिव मंदिर टोला", population: 2000 },
+            { villageName: "डोबो ( Old Basti)", population: 2000 },
+            { villageName: "कुसुमडीह + सोनारीकुली", population: 2000 },
+            { villageName: "हनुमान कॉलोनी", population: 2000 },
+            { villageName: "दोमुहानी", population: 2000 },
+            { villageName: "हुचुकडीह", population: 2000 },
+            { villageName: "काडीपाथर", population: 2000 },
+            { villageName: "रोड नं -3", population: 2000 },
+            { villageName: "पुडीसिली", population: 2000 },
+            { villageName: "कुम्हार टोला", population: 2000 },
+            { villageName: "रुगडी- 1", population: 2000 },
+            { villageName: "रुगडी - 2", population: 2000 },
+            { villageName: "रुगडी ( पोराईडीह)", population: 2000 },
+            { villageName: "चिरूगोड़ा -1", population: 2000 },
+            { villageName: "चिरूगोड़ा -2", population: 2000 },
+            { villageName: "गौरी - 1", population: 2000 },
+            { villageName: "गौरी - 2", population: 2000 },
+            { villageName: "गौरी ( रायवनि)", population: 2000 },
+            { villageName: "धरनीगोड़ा-1", population: 2000 },
+            { villageName: "धरनीगोडा -2", population: 2000 },
+
+
+          ]
+        },
+        {
+          panchayatName: "झाबरी",
+          villages: [
+
+            { villageName: "पोड़का  ", population: 2000 },
+            { villageName: "धातकीडीह ", population: 2000 },
+            { villageName: "नतुनडीह ", population: 2000 },
+            { villageName: "पदडीह", population: 2000 },
+            { villageName: "लेंगडीह", population: 2000 },
+            { villageName: "झाबरी", population: 2000 },
+            { villageName: "भुरुगोड़ा", population: 2000 },
+            { villageName: "जाँता ", population: 2000 },
+            { villageName: "दिरलोंग ", population: 2000 },
+            { villageName: "कारूबेड़ा ", population: 2000 },
+            { villageName: "भालुकगाडीह", population: 2000 },
+            { villageName: "सिदडीह ", population: 2000 },
+            { villageName: "BURUGORA", population: 2000 },
+            { villageName: "RANGADIH", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "घोड़ानेगी",
+          villages: [
+
+            { villageName: "घोड़ानेगी", population: 2000 },
+            { villageName: "चपटटांड", population: 2000 },
+            { villageName: "बेडा़", population: 2000 },
+            { villageName: "तेरेडीह", population: 2000 },
+            { villageName: "डेम कॉलोनी ", population: 2000 },
+            { villageName: "डिमुडीह", population: 2000 },
+            { villageName: "वोराबिन्धा ", population: 2000 },
+            { villageName: "नुतुनडीह ", population: 2000 },
+            { villageName: "कुटामखाल", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "CHANDIL",
+          villages: [
+
+
+            { villageName: "KADAMDIH", population: 2000 },
+            { villageName: "SIKLI", population: 2000 },
+            { villageName: "CHANDIL", population: 2000 },
+            { villageName: "SOSHAN TAND", population: 2000 },
+            { villageName: "HAT TOLA", population: 2000 },
+            { villageName: "LENGDIH", population: 2000 },
+            { villageName: "KALINDI BASTI", population: 2000 },
+            { villageName: "KUMAR PADA", population: 2000 },
+            { villageName: "BHUIYA PADA", population: 2000 },
+            { villageName: "BENA PADA", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "रूचाप",
+          villages: [
+
+            { villageName: "GANGUDIH", population: 2000 },
+            { villageName: "हिरीमिली", population: 2000 },
+            { villageName: "रूचाप", population: 2000 },
+            { villageName: "PUNARWAS", population: 2000 },
+            { villageName: "भालूककोचा ", population: 2000 },
+            { villageName: "BONDIH", population: 2000 },
+            { villageName: "टीचर्स कॉलोनी", population: 2000 },
+            { villageName: "गांगुडीह पूर्नवास ", population: 2000 },
+            { villageName: "धातकीडीह ", population: 2000 },
+            { villageName: "भुईयाटोला", population: 2000 },
+            { villageName: "हॉस्पिटल एरिया", population: 2000 },
+            { villageName: "सालडीह ", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "रुसुनिया",
+          villages: [
+
+
+            { villageName: "रुसुनिया", population: 2000 },
+            { villageName: "लेगंडीह", population: 2000 },
+            { villageName: "रावताड़ा ", population: 2000 },
+            { villageName: "तिरुलडीह", population: 2000 },
+            { villageName: "सुकसारी", population: 2000 },
+            { villageName: "कागलाटांड", population: 2000 },
+            { villageName: "पियालडीह", population: 2000 },
+            { villageName: "हाथीनंदा", population: 2000 },
+            { villageName: "मांझी टोला ", population: 2000 },
+            { villageName: "MAHATO TOLA", population: 2000 },
+            { villageName: "MAJHI TOLA", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "रुदिया",
+          villages: [
+
+            { villageName: "चैनपुर", population: 2000 },
+            { villageName: "दाड़दा ", population: 2000 },
+            { villageName: "दालग्राम", population: 2000 },
+            { villageName: "काटिया", population: 2000 },
+            { villageName: "पाटाटोला", population: 2000 },
+            { villageName: "रुदिया", population: 2000 },
+            { villageName: "शहरबेड़ा", population: 2000 },
+            { villageName: "तारकुंआ", population: 2000 },
+            { villageName: "सोहराबेड़ा", population: 2000 },
+            { villageName: "वनडीह टोला", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "हेंसाकोचा",
+          villages: [
+
+
+            { villageName: "रांका ", population: 2000 },
+            { villageName: "टुडू", population: 2000 },
+            { villageName: "हेंसाकोचा", population: 2000 },
+            { villageName: "माचाबेडा", population: 2000 },
+            { villageName: "रांगामाटिया", population: 2000 },
+            { villageName: "तानिसया", population: 2000 },
+            { villageName: "मुतुदा", population: 2000 },
+            { villageName: "पालना", population: 2000 },
+            { villageName: "कोकेबेडा", population: 2000 },
+            { villageName: "लम्बाडुगरी टोला", population: 2000 },
+            { villageName: "जारवादाह टोला", population: 2000 },
+            { villageName: "बारूडीह", population: 2000 },
+            { villageName: "रागाडीह", population: 2000 },
+            { villageName: "पारसीडुंगरी", population: 2000 },
+            { villageName: "नीमघुटु ", population: 2000 },
+            { villageName: "पोडोकोचा", population: 2000 },
+            { villageName: "मातकामटोराम", population: 2000 },
+            { villageName: "मुरूकडीह", population: 2000 },
+            { villageName: "बान्दुडीह", population: 2000 },
+            { villageName: "ससोघुटु ", population: 2000 },
+            { villageName: "डुगरीडीह", population: 2000 },
+            { villageName: "जाहेरडीह", population: 2000 },
+            { villageName: "कालोपत्थर ", population: 2000 },
+            { villageName: "केन्दगोडा", population: 2000 },
+            { villageName: "धातकीडीह", population: 2000 },
+            { villageName: "कान्कीबेडा", population: 2000 },
+            { villageName: "कदमबेडा", population: 2000 },
+            { villageName: "दिगारदा", population: 2000 },
+            { villageName: "गेगेरदा", population: 2000 },
+
+
+          ]
+        },
+        {
+          panchayatName: "मातकमडीह",
+          villages: [
+            { villageName: "रेयाडदा", population: 2000 },
+            { villageName: "बारसीरा", population: 2000 },
+            { villageName: "लापाईबेडा", population: 2000 },
+            { villageName: "कादलाकोचा", population: 2000 },
+            { villageName: "मातकमडीह", population: 2000 },
+            { villageName: "रायडीह", population: 2000 },
+            { villageName: "चुटियाखाल", population: 2000 },
+            { villageName: "गुटीऊली ", population: 2000 },
+            { villageName: "धोबातांती", population: 2000 },
+            { villageName: "डुंगरीडीह टोला", population: 2000 },
+            { villageName: "पानरीकोचा", population: 2000 },
+            { villageName: "गांदाबेडा", population: 2000 },
+            { villageName: "पासानडीह", population: 2000 },
+            { villageName: "डेबरागोड़ा", population: 2000 },
+            { villageName: "वोरयाबेड़ा", population: 2000 },
+            { villageName: "बांसडुंगरी", population: 2000 },
+            { villageName: "मालहानकोचा", population: 2000 },
+            { villageName: "धातकीडीह", population: 2000 },
+            { villageName: "गुँगुकोचा", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "उरमाल",
+          villages: [
+
+            { villageName: "डुंगरीडीह", population: 2000 },
+            { villageName: "काटाबेडा टेला", population: 2000 },
+            { villageName: "राँगाटांड", population: 2000 },
+            { villageName: "भुचूगडीह", population: 2000 },
+            { villageName: "जारा", population: 2000 },
+            { villageName: "हेरेमदा", population: 2000 },
+            { villageName: "डुबुडीह", population: 2000 },
+            { villageName: "उरमाल", population: 2000 },
+            { villageName: "बागालडीह टोला", population: 2000 },
+            { villageName: "बुरुडीह ", population: 2000 },
+            { villageName: "गेरीया कोचा", population: 2000 },
+            { villageName: "माहादेवबेड़ा", population: 2000 },
+            { villageName: "हाथी कोचा", population: 2000 },
+            { villageName: "गीतीलवेड़ा", population: 2000 },
+            { villageName: "विद्री", population: 2000 },
+            { villageName: "पुराणडीह", population: 2000 },
+            { villageName: "दिनाई ", population: 2000 },
+            { villageName: "सावडीह", population: 2000 },
+
+          ]
+        },
+        {
+          panchayatName: "खुंटी",
+          villages: [
+
+            { villageName: "केदारडीह ", population: 2000 },
+            { villageName: "मांझीखुली", population: 2000 },
+            { villageName: "पलासटांड ", population: 2000 },
+            { villageName: "डुँगरीधार", population: 2000 },
+            { villageName: "पाहाड़धार ", population: 2000 },
+            { villageName: "कुरली", population: 2000 },
+            { villageName: "खुंटी", population: 2000 },
+            { villageName: "कुमार खुली ", population: 2000 },
+            { villageName: "महतो खुली", population: 2000 },
+            { villageName: "मुसरीबेड़ा", population: 2000 },
+            { villageName: "जाहेरडीह", population: 2000 },
+          ]
+        }
+
+      ]
+    },
+    {
+      blockName: "Nimdih",
+      panchayats: [
+
+      ]
+    },
+    {
+      blockName: "Nimdih",
+      panchayats: [
+
+      ]
+    }
   ];
 
-  useEffect(() => {
-    // Fetch block, panchayat, and village data from the backend API
-    // axios.get('https://preenal.in/api/locationData')
-    //   .then(response => {
-    //     setData(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching location data:', error);
-    //   });
-  }, []);
+  const resetForm = () => {
+    setForm({
+      date: '',
+      name: '',
+      mobile: '',
+      email: '',
+      block: '',
+      panchayat: '',
+      village: '',
+      referenceName: '',
+      referenceMobile: '',
+    });
+    setSelectedType('');
+    setSelectedBlock('');
+    setSelectedPanchayat('');
+    setSelectedVillage('');
+  };
 
   const handleSubmit = () => {
     if (!form.name || !form.mobile || !form.block || !form.panchayat || !form.village) {
@@ -161,6 +785,9 @@ const Booking: React.FC = () => {
           isOpen: true,
           duration: 2000,
         });
+
+        // Reset the form after successful submission
+        resetForm();
       })
       .catch(error => {
         console.error('Error booking:', error);

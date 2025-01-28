@@ -35,8 +35,8 @@ const appPages: AppPage[] = [
     mdIcon: briefcaseSharp
   },
   {
-    title: 'Check Status',
-    url: '/CheckStatus',
+    title: 'Track',
+    url: '/Track',
     iosIcon: documentOutline,
     mdIcon: documentSharp
   },

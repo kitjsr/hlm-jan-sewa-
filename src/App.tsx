@@ -37,6 +37,9 @@ import Booking from './components/Booking';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Track from './components/Track';
+import Bookings from './components/Bookings';
+import AdminDashboard from './components/AdminDashboard';
 
 setupIonicReact();
 
@@ -61,6 +64,15 @@ const App: React.FC = () => {
             </Route>
             <Route path="/Logout" exact={true}>
               <Logout />
+            </Route>
+            <Route path="/Bookings" exact={true}>
+              <Bookings />
+            </Route>
+            <Route path="/Track" exact={true}>
+              <Track />
+            </Route>
+            <Route path="/AdminDashboard" exact={true}>
+              <AdminDashboard />
             </Route>
             <Route path="/folder/:name" exact={true}>
               <Page />

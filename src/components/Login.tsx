@@ -15,7 +15,13 @@ const Login: React.FC = () => {
     return emailPattern.test(email);
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();  // Prevent form refresh
+
+    // Reset error messages before validation
+    setErrorMessage('');
+    setShowToast(false);
+
     if (email === '' || password === '') {
       setErrorMessage('Please enter both email and password.');
       setShowToast(true);
@@ -29,7 +35,7 @@ const Login: React.FC = () => {
     }
 
     try {
-      const response = await fetch('https://preenal.in/api/auth/login', {
+      const response = await fetch('https://preenal.in/api/auth/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +58,7 @@ const Login: React.FC = () => {
       localStorage.setItem('authToken', data.token);
 
       // Redirect to a different page, e.g., dashboard
-      history.push('/dashboard');
+      history.push('/AdminDashboard');
 
     } catch (error) {
       console.error('Login request failed', error);
@@ -66,36 +72,43 @@ const Login: React.FC = () => {
       <IonContent className="ion-padding">
         <h2>Login</h2>
 
-        <IonItem>
-          <IonLabel position="stacked">Email</IonLabel>
-          <IonInput
-            value={email}
-            onIonChange={e => setEmail(e.detail.value!)}
-            type="email"
-            placeholder="Enter your email"
-            autoFocus
-          />
-        </IonItem>
+        {/* Wrap the inputs and button inside a form element */}
+        <form onSubmit={handleLogin}>
+          <IonItem>
+            <IonLabel position="stacked">Email</IonLabel>
+            <IonInput
+              value={email}
+              onIonChange={e => setEmail(e.detail.value!)}
+              type="email"
+              placeholder="Enter your email"
+              autoFocus
+            />
+          </IonItem>
 
-        <IonItem>
-          <IonLabel position="stacked">Password</IonLabel>
-          <IonInput
-            value={password}
-            onIonChange={e => setPassword(e.detail.value!)}
-            type="password"
-            placeholder="Enter your password"
-          />
-        </IonItem>
+          <IonItem>
+            <IonLabel position="stacked">Password</IonLabel>
+            <IonInput
+              value={password}
+              onIonChange={e => setPassword(e.detail.value!)}
+              type="password"
+              placeholder="Enter your password"
+            />
+          </IonItem>
 
-        <IonButton expand="full" onClick={(e) => { e.preventDefault(); handleLogin(); }}>
-          Log In
-        </IonButton>
+          
+
+          <IonButton expand="full" type="submit" disabled={!email || !password || !validateEmail(email)}>
+  Log In
+</IonButton>
+
+        </form>
+
         {/* Toast for error message */}
         <IonToast
           isOpen={showToast}
-          onDidDismiss={() => setShowToast(false)}
+          onDidDismiss={() => setShowToast(false)}  // Ensure toast closes
           message={errorMessage}
-          duration={2000}
+          duration={2000}  // Show for 2 seconds
         />
 
         <IonText>
