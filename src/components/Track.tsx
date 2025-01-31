@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonPage, IonInput, IonButton, IonText, IonItem, IonLabel, IonCard } from '@ionic/react';
+import { IonContent, IonPage, IonInput, IonButton, IonText, IonItem, IonLabel, IonCard, IonToolbar, IonTitle, IonHeader, IonButtons, IonMenuButton } from '@ionic/react';
 
 // Define the type for a booking
 interface Booking {
+  bookingType: string;
   name: string;
   mobile: string;
   email: string;
@@ -46,7 +47,7 @@ const Track: React.FC = () => {
     try {
       const response = await fetch(`https://preenal.in/api/bookings/mobile/${mobile}`);
       const data = await response.json();
-
+      console.log(data);
       // Check if the response has valid data
       if (data.length > 0) {
         setBookings(data); // Set the bookings data
@@ -79,7 +80,15 @@ const Track: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent>
+      <IonHeader>
+              <IonToolbar>
+                <IonButtons slot="start">
+                  <IonMenuButton />
+                </IonButtons>
+                <IonTitle>Track Status</IonTitle>
+              </IonToolbar>
+            </IonHeader>
+      <IonContent fullscreen>
         {/* Input for Mobile Number */}
         <IonItem>
           <IonLabel position="floating">Mobile Number</IonLabel>
@@ -103,6 +112,9 @@ const Track: React.FC = () => {
             const statusIndex = parseInt(booking.currentStatus);
             return (
               <IonCard key={booking.id}>
+              <IonItem>
+                <IonLabel><b>{booking.bookingType} Booking Details</b></IonLabel>
+              </IonItem>
                 <IonItem>
                   <IonLabel>Name: {booking.name}</IonLabel>
                 </IonItem>
@@ -116,10 +128,7 @@ const Track: React.FC = () => {
                   <IonLabel>Date: {new Date(booking.date).toLocaleString()}</IonLabel>
                 </IonItem>
                 <IonItem>
-                  <IonLabel>Reference Name: {booking.referenceName || 'N/A'}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Reference Mobile: {booking.referenceMobile || 'N/A'}</IonLabel>
+                  <IonLabel>Reference: {booking.referenceName || 'N/A'}, {booking.referenceMobile || 'N/A'}</IonLabel>
                 </IonItem>
                 <IonItem>
                   <IonLabel color={statusColorMap[statusIndex]}>

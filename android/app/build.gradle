@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "in.kunalitechnology.hlmJanSeva"
+    namespace "in.kunalitechnology.hlmjs"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "in.kunalitechnology.hlmJanSeva"
+        applicationId "in.kunalitechnology.hlmjs"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

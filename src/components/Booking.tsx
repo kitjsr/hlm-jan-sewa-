@@ -35,6 +35,7 @@ const Booking: React.FC = () => {
 
   // Add state for reference fields
   const [form, setForm] = useState({
+    bookingType: '',  // Added bookingType field
     date: '',
     name: '',
     mobile: '',
@@ -737,13 +738,13 @@ const Booking: React.FC = () => {
       ]
     },
     {
-      blockName: "Nimdih",
+      blockName: "Ichagarh",
       panchayats: [
 
       ]
     },
     {
-      blockName: "Nimdih",
+      blockName: "Kukru",
       panchayats: [
 
       ]
@@ -752,6 +753,7 @@ const Booking: React.FC = () => {
 
   const resetForm = () => {
     setForm({
+      bookingType: '',  // Reset bookingType
       date: '',
       name: '',
       mobile: '',
@@ -777,8 +779,10 @@ const Booking: React.FC = () => {
       });
       return;
     }
+// Include selectedType in the form data before submitting
+const formData = { ...form, bookingType: selectedType };  // Make sure to include bookingType here
 
-    axios.post('https://preenal.in/api/bookings', form)
+    axios.post('https://preenal.in/api/bookings', formData)
       .then(response => {
         setToast({
           message: 'Booking Successful!',
@@ -840,8 +844,8 @@ const Booking: React.FC = () => {
             onIonChange={e => setSelectedType(e.detail.value)}
             interface="modal"
           >
-            <IonSelectOption value="ambulance">Ambulance</IonSelectOption>
-            <IonSelectOption value="waterTank">Water Tank</IonSelectOption>
+            <IonSelectOption value="Ambulance">Ambulance</IonSelectOption>
+            <IonSelectOption value="Water Tank">Water Tank</IonSelectOption>
           </IonSelect>
         </IonItem>
 

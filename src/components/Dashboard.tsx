@@ -7,6 +7,10 @@ import {
   IonTitle,
   IonButtons,
   IonMenuButton,
+  IonGrid,
+  IonRow,
+  IonButton,
+  IonCol,
 } from "@ionic/react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,6 +20,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css';
 import "swiper/css/pagination"; // Import Pagination styles
 import "swiper/css/navigation"; // Import Navigation styles
+import slide1 from '../../resources/hlm1.jpg'; // Import the image
+import slide2 from '../../resources/hlm2.jpg'; // Import the image
 const slideOpts = {
   loop: true, // Enable looping of slides
   spaceBetween: 10, // Space between slides
@@ -32,14 +38,7 @@ const slideOpts = {
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Dashboard</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -52,26 +51,31 @@ const Dashboard: React.FC = () => {
         <Swiper {...slideOpts}  modules={[Navigation, Pagination]} >
           <SwiperSlide>
             <img
-              src="https://via.placeholder.com/600x300/FF0000/FFFFFF?text=Slide+1"
+              src={slide1}
               alt="Slide 1"
               style={{ width: "100%", height: "auto" }} // Ensure image covers full width
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="https://via.placeholder.com/600x300/00FF00/FFFFFF?text=Slide+2"
+              src={slide2}
               alt="Slide 2"
               style={{ width: "100%", height: "auto" }}
             />
           </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://via.placeholder.com/600x300/0000FF/FFFFFF?text=Slide+3"
-              alt="Slide 3"
-              style={{ width: "100%", height: "auto" }}
-            />
-          </SwiperSlide>
         </Swiper>
+        <IonGrid>
+          <IonRow>
+            <IonCol size="12" className="ion-text-center">
+            <IonButton routerLink="/Booking">Book Now</IonButton>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol size="12" className="ion-text-center">
+            <IonButton routerLink="/Track" color="warning">Check Booking Status</IonButton>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

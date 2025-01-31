@@ -1,4 +1,4 @@
-package in.kunalitechnology.hlmJanSeva;
+package in.kunalitechnology.hlmjs;
 
 import com.getcapacitor.BridgeActivity;
 
