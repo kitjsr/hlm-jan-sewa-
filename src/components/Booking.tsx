@@ -1280,7 +1280,7 @@ const Booking: React.FC = () => {
             interface="modal"
           >
             <IonSelectOption value="Ambulance">Ambulance</IonSelectOption>
-            <IonSelectOption value="Water Tank">Water Tank</IonSelectOption>
+            <IonSelectOption value="Water Tanker">Water Tanker</IonSelectOption>
           </IonSelect>
         </IonItem>
 

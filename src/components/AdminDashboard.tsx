@@ -1,12 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonLabel } from '@ionic/react';
+import { IonContent, IonPage, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonLabel, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle } from '@ionic/react';
 import { useHistory } from 'react-router';
 import './AdminDashboard.css';
+import { jwtDecode } from 'jwt-decode';
 
 const AdminDashboard: React.FC = () => {
   const [bookingsCount, setBookingsCount] = useState<number>(0);
   const history = useHistory();
 
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [role, setRole] = useState<string | null>(null);
+
+
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        setIsAuthenticated(true);
+        const decodedToken: any = jwtDecode(token);
+
+        setRole(decodedToken.role);
+        
+        console.log('Decoded Role:', decodedToken.role);
+        if(decodedToken.role!=="admin"){
+          history.push('/login');
+        }
+      } else {
+        setIsAuthenticated(false);
+        history.push('/login');
+      }
+    };
+    fetchToken();
+  }, [history]);
   useEffect(() => {
     // Fetch the bookings count from the API
     const fetchBookingsCount = async () => {
@@ -32,16 +58,25 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Dashboard</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent fullscreen>
         <IonCard>
           <IonCardHeader>
-            <IonCardTitle>Admin Dashboard</IonCardTitle>
+            <IonCardTitle>Bookings</IonCardTitle>
             <IonCardSubtitle>Overview of Bookings</IonCardSubtitle>
           </IonCardHeader>
           <IonCardContent>
             <div className="dashboard-info">
               <IonLabel>Number of Bookings:</IonLabel>
-              <h2>{bookingsCount}</h2>
+              <h1>{bookingsCount}</h1>
               <IonButton expand="full" onClick={handleViewAllBookings}>
                 View All Bookings
               </IonButton>

@@ -1,4 +1,4 @@
-import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'; // For navigation after logout
 
@@ -40,7 +40,10 @@ const Logout = () => {
           <IonRow>
             <IonCol>
               <IonItem>
-                <button onClick={handleLogout}>Log Out</button>
+
+                <IonButton expand="full" onClick={handleLogout}>
+                  Logout
+                </IonButton>
               </IonItem>
 
 

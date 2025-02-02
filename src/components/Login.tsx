@@ -35,7 +35,7 @@ const Login: React.FC = () => {
     }
 
     try {
-      const response = await fetch('https://preenal.in/api/auth/login', { 
+      const response = await fetch('https://preenal.in/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,11 +95,11 @@ const Login: React.FC = () => {
             />
           </IonItem>
 
-          
+
 
           <IonButton expand="full" type="submit" disabled={!email || !password || !validateEmail(email)}>
-  Log In
-</IonButton>
+            Log In
+          </IonButton>
 
         </form>
 

@@ -81,13 +81,13 @@ const Track: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-              <IonToolbar>
-                <IonButtons slot="start">
-                  <IonMenuButton />
-                </IonButtons>
-                <IonTitle>Track Status</IonTitle>
-              </IonToolbar>
-            </IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Track Status</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent fullscreen>
         {/* Input for Mobile Number */}
         <IonItem>
@@ -112,9 +112,9 @@ const Track: React.FC = () => {
             const statusIndex = parseInt(booking.currentStatus);
             return (
               <IonCard key={booking.id}>
-              <IonItem>
-                <IonLabel><b>{booking.bookingType} Booking Details</b></IonLabel>
-              </IonItem>
+                <IonItem>
+                  <IonLabel><b>{booking.bookingType} Booking Details</b></IonLabel>
+                </IonItem>
                 <IonItem>
                   <IonLabel>Name: {booking.name}</IonLabel>
                 </IonItem>

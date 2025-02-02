@@ -47,16 +47,16 @@ const Bookings: React.FC = () => {
 
   return (
     <IonPage>
-          <IonHeader>
-            <IonToolbar>
-              <IonButtons slot="start">
-                <IonMenuButton />
-              </IonButtons>
-              <IonTitle>Bookings</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-    
-          <IonContent fullscreen>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Bookings</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent fullscreen>
         <IonLoading isOpen={loading} message="Fetching bookings..." />
         {error && <IonText color="danger"><p>{error}</p></IonText>}
         <IonList>
