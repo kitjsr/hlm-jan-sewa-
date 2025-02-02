@@ -148,7 +148,7 @@ const Menu: React.FC = () => {
             </IonMenuToggle>
           ))}
         </IonList>
-
+        <p><a href="http://kunalitechnology.in/hlmjs/privacy.html">Privacy Policy</a></p>
         <p>&copy; Kunal i Technology</p>
       </IonContent>
     </IonMenu>

@@ -41,14 +41,16 @@ const slideOpts = {
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
-
+<IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>HLM जन सेवा</IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle>Dashboard</IonTitle>
-          </IonToolbar>
-        </IonHeader>
 
         {/* Swiper carousel */}
         <Swiper {...slideOpts} modules={[Navigation, Pagination]} >

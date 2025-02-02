@@ -1,7 +1,7 @@
 {
   "name": "hlm-jan-sewa",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -50,5 +50,5 @@
     "vite": "~5.2.0",
     "vitest": "^0.34.6"
   },
-  "description": "An Ionic project"
+  "description": "HLM जन सेवा Empowering communities with seamless services like Free Ambulance and Free Water Tanker at your fingertips."
 }
