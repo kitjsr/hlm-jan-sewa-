@@ -26,6 +26,10 @@ import {
   mailSharp,
   briefcaseOutline,
   briefcaseSharp,
+  createOutline,
+  createSharp,
+  fileTrayOutline,
+  fileTraySharp,
 } from 'ionicons/icons';
 import { jwtDecode } from 'jwt-decode';
 import './Menu.css';
@@ -49,8 +53,8 @@ const Menu: React.FC = () => {
     {
       title: 'Booking',
       url: '/Booking',
-      iosIcon: medicalOutline,
-      mdIcon: medicalSharp,
+      iosIcon: createOutline,
+      mdIcon: createSharp,
     },
     {
       title: 'Track',
@@ -77,8 +81,8 @@ const Menu: React.FC = () => {
     {
       title: 'Bookings',
       url: '/Bookings',
-      iosIcon: mailOutline,
-      mdIcon: mailSharp,
+      iosIcon: fileTrayOutline,
+      mdIcon: fileTraySharp,
     },
     {
       title: 'Logout',
