@@ -1,5 +1,5 @@
 import React from "react";
-import './Dashboard.css';  // Import the CSS file for styling
+import './Dashboard.css';
 import {
   IonContent,
   IonPage,
@@ -15,33 +15,35 @@ import {
 } from "@ionic/react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+// Import Swiper core and required modules
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
-import "swiper/css/pagination"; // Import Pagination styles
-import "swiper/css/navigation"; // Import Navigation styles
-import slide1 from '../../resources/hlm1.jpg'; // Import the image
-import slide2 from '../../resources/hlm2.jpg'; // Import the image
-import slide3 from '../../resources/hlm3.jpg'; // Import the image
-// import ambulance from '../../resources/ambulance.png'; // Import the image
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/autoplay'; // Import the autoplay styles
+import slide1 from '../../resources/hlm1.jpg';
+import slide2 from '../../resources/hlm2.jpg';
+import slide3 from '../../resources/hlm3.jpg';
+
 const slideOpts = {
-  loop: true, // Enable looping of slides
-  spaceBetween: 10, // Space between slides
-  slidesPerView: 1, // Number of slides to show per view
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 1,
   autoplay: {
-    delay: 1500, // Auto-slide every 1.5 seconds
-    disableOnInteraction: false, // Allow autoplay to continue after user interaction
+    delay: 1800, // Auto-slide every 0.5 seconds
+    disableOnInteraction: false, // Continue autoplay after user interaction
   },
   pagination: {
-    clickable: true, // Enable pagination
+    clickable: true,
   },
-  navigation: true, // Enable next/prev navigation buttons
+  navigation: false,
 };
+
 const Dashboard: React.FC = () => {
   return (
     <IonPage>
-<IonHeader>
+      <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonMenuButton />
@@ -51,21 +53,23 @@ const Dashboard: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen>
-
         {/* Swiper carousel */}
-        <Swiper {...slideOpts} modules={[Navigation, Pagination]} >
+        <Swiper
+          {...slideOpts}
+          modules={[Navigation, Pagination, Autoplay]} // Include Autoplay here
+        >
           <SwiperSlide>
             <img
               src={slide3}
               alt="Slide 1"
-              style={{ width: "100%", height: "auto" }} // Ensure image covers full width
+              style={{ width: "100%", height: "auto" }}
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               src={slide1}
               alt="Slide 1"
-              style={{ width: "100%", height: "auto" }} // Ensure image covers full width
+              style={{ width: "100%", height: "auto" }}
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -91,8 +95,11 @@ const Dashboard: React.FC = () => {
         <IonGrid>
           <div className="app-container">
             <div className="road">
+              <div className="first-line"></div>
               <div className="vehicle ambulance"></div>
+              <div className="middle-line"></div>
               <div className="vehicle water-tank"></div>
+              <div className="second-line"></div>
             </div>
           </div>
         </IonGrid>

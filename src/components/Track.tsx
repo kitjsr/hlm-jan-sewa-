@@ -4,6 +4,10 @@ import { IonContent, IonPage, IonInput, IonButton, IonText, IonItem, IonLabel, I
 // Define the type for a booking
 interface Booking {
   bookingType: string;
+  disease:String;
+  from:String;
+  to:String;
+  occasion:String;
   name: string;
   mobile: string;
   email: string;
@@ -48,9 +52,14 @@ const Track: React.FC = () => {
       const response = await fetch(`https://preenal.in/api/bookings/mobile/${mobile}`);
       const data = await response.json();
       console.log(data);
+
       // Check if the response has valid data
       if (data.length > 0) {
-        setBookings(data); // Set the bookings data
+        // Sort bookings by createdAt in descending order
+        const sortedBookings = data.sort((a: Booking, b: Booking) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+        setBookings(sortedBookings); // Set the sorted bookings data
       } else {
         setError('No bookings found for this mobile number!'); // Show error if no bookings
         setBookings(null);
@@ -107,38 +116,65 @@ const Track: React.FC = () => {
         {loading && <IonText color="primary"><p>Loading bookings...</p></IonText>}
 
         {/* Display Bookings */}
-        {bookings && bookings.length > 0 && (
-          bookings.map((booking) => {
-            const statusIndex = parseInt(booking.currentStatus);
-            return (
-              <IonCard key={booking.id}>
-                <IonItem>
-                  <IonLabel><b>{booking.bookingType} Booking Details</b></IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Name: {booking.name}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Mobile: {booking.mobile}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Email: {booking.email}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Date: {new Date(booking.date).toLocaleString()}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel>Reference: {booking.referenceName || 'N/A'}, {booking.referenceMobile || 'N/A'}</IonLabel>
-                </IonItem>
-                <IonItem>
-                  <IonLabel color={statusColorMap[statusIndex]}>
-                    Current Status: {statusMap[statusIndex]}
-                  </IonLabel>
-                </IonItem>
-              </IonCard>
-            );
-          })
+        {/* Display Bookings */}
+{bookings && bookings.length > 0 && (
+  bookings.map((booking) => {
+    const statusIndex = parseInt(booking.currentStatus);
+    return (
+      <IonCard key={booking.id}>
+        <IonItem>
+          <IonLabel><b>{booking.bookingType} Booking Details</b></IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel>Name: {booking.name}</IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel>Mobile: {booking.mobile}</IonLabel>
+        </IonItem>
+        {booking.email && (
+          <IonItem>
+            <IonLabel>Email: {booking.email}</IonLabel>
+          </IonItem>
         )}
+        <IonItem>
+          <IonLabel>Date: {new Date(booking.date).toLocaleString()}</IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel>Reference: {booking.referenceName || 'N/A'}, {booking.referenceMobile || 'N/A'}</IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel color={statusColorMap[statusIndex]}>
+            Current Status: {statusMap[statusIndex]}
+          </IonLabel>
+        </IonItem>
+        
+        {/* Conditional rendering based on booking type */}
+        {booking.bookingType === 'Ambulance' && (
+          <>
+            <IonItem>
+              <IonLabel>Disease: {booking.disease || 'N/A'}</IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel>From: {booking.from || 'N/A'}</IonLabel>
+            </IonItem>
+            <IonItem>
+              <IonLabel>To: {booking.to || 'N/A'}</IonLabel>
+            </IonItem>
+          </>
+        )}
+
+        {booking.bookingType === 'Water Tanker' && (
+          <IonItem>
+            <IonLabel>Occasion: {booking.occasion || 'N/A'}</IonLabel>
+          </IonItem>
+        )}
+
+      </IonCard>
+    );
+  })
+)}
+
+
 
         {/* If no bookings found */}
         {bookings && bookings.length === 0 && (
