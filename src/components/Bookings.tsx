@@ -9,7 +9,7 @@ const Bookings: React.FC = () => {
   const [updatingStatus, setUpdatingStatus] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const statusMap = ['Booked', 'Processing', 'Done', 'Cancelled'];
+  const statusMap = ['Under Process', 'Processing', 'Done', 'Cancelled'];
   const iconMap = [checkmarkCircle, time, checkmark, closeCircle]; // Icon mapping based on status
 
   // Booking Type Icons
@@ -93,7 +93,7 @@ const Bookings: React.FC = () => {
 
                 {/* IonSelect for changing status */}
                 <IonSelect
-                  value={booking.currentStatus !== undefined ? booking.currentStatus : 0} // default to 'Booked' (index 0)
+                  value={booking.currentStatus !== undefined ? booking.currentStatus : 0} // default to 'Under Process' (index 0)
                   onIonChange={(e) => updateCurrentStatus(booking.id, e.detail.value)}
                   disabled={updatingStatus || loading} // Disable while updating or loading
                 >

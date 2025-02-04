@@ -25,11 +25,11 @@ interface Booking {
 }
 
 // Status map to display readable status
-const statusMap = ['Booked', 'Processing', 'Done', 'Cancelled'];
+const statusMap = ['Under Process', 'Processing', 'Done', 'Cancelled'];
 
 // Color map for current status
 const statusColorMap = {
-  0: 'primary',    // Booked
+  0: 'primary',    // Under Process
   1: 'warning',    // Processing
   2: 'success',    // Done
   3: 'danger'      // Cancelled

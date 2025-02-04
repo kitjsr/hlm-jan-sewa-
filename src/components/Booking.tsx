@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './Booking.css';
 import {
   IonContent,
   IonPage,
@@ -19,12 +20,11 @@ import {
   IonToast,
 } from "@ionic/react";
 import axios from "axios";
-import { fileTrayFullOutline, fileTrayFullSharp } from "ionicons/icons";
-import ExploreContainer from "./ExploreContainer";
 
 const Booking: React.FC = () => {
   const today = new Date();
-  today.setDate(today.getDate() + 1); // Adds one day
+  // today.setDate(today.getDate() + 1); // Adds one day
+  today.setDate(today.getDate()); // Adds zero day
 
   const tomorrow = today.toISOString().split('T')[0];
   const [selectedType, setSelectedType] = useState<string>('');
@@ -35,21 +35,21 @@ const Booking: React.FC = () => {
 
   // Add state for reference fields
   const [form, setForm] = useState({
-    bookingType: '', 
-      disease:'',
-      from:'',
-      to:'',
-      occasion:'',
-      date: '',
-      time:'',
-      name: '',
-      mobile: '',
-      email: '',
-      block: '',
-      panchayat: '',
-      village: '',
-      referenceName: '',
-      referenceMobile: '',
+    bookingType: '',
+    disease: '',
+    from: '',
+    to: '',
+    occasion: '',
+    date: '',
+    time: '',
+    name: '',
+    mobile: '',
+    email: '',
+    block: '',
+    panchayat: '',
+    village: '',
+    referenceName: '',
+    referenceMobile: '',
   });
   const [toast, setToast] = useState({
     message: '',
@@ -1193,13 +1193,13 @@ const Booking: React.FC = () => {
 
   const resetForm = () => {
     setForm({
-      bookingType: '', 
-      disease:'',
-      from:'',
-      to:'',
-      occasion:'',
+      bookingType: '',
+      disease: '',
+      from: '',
+      to: '',
+      occasion: '',
       date: '',
-      time:'',
+      time: '',
       name: '',
       mobile: '',
       email: '',
@@ -1275,11 +1275,11 @@ const Booking: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen>
-        
+
 
         {/* Booking form inputs */}
         <IonItem>
-          <IonLabel position="floating">Booking Type आप क्या बुक करना चाहते हैं?</IonLabel>
+          <IonLabel position="floating" className="hlm">Booking Type आप क्या बुक करना चाहते हैं?</IonLabel>
           <IonSelect
             value={selectedType}
             onIonChange={e => setSelectedType(e.detail.value)}
@@ -1289,43 +1289,43 @@ const Booking: React.FC = () => {
             <IonSelectOption value="Water Tanker">Water Tanker पानी टैंकर</IonSelectOption>
           </IonSelect>
         </IonItem>
-{/* Dynamically render fields based on bookingType */}
-{selectedType === "Water Tanker" && (
-         
+        {/* Dynamically render fields based on bookingType */}
+        {selectedType === "Water Tanker" && (
+
           <IonItem>
-          <IonLabel position="floating">Occasion किस अवसर के लिए</IonLabel>
-          <IonSelect
-            value={form.occasion}
-            onIonChange={e => setForm({ ...form, occasion: e.detail.value! })}
-            interface="modal"
-          >
-            <IonSelectOption value="शादी">शादी</IonSelectOption>
-            <IonSelectOption value="पूजा/कीर्तन">पूजा/कीर्तन</IonSelectOption>
-            <IonSelectOption value="श्राद्ध">श्राद्ध</IonSelectOption>
-            <IonSelectOption value="सामाजिक कार्य">सामाजिक कार्य</IonSelectOption>
-            <IonSelectOption value="अन्य">अन्य</IonSelectOption>
-          </IonSelect>
-        </IonItem>
+            <IonLabel position="floating" className="hlm">Occasion किस अवसर के लिए</IonLabel>
+            <IonSelect
+              value={form.occasion}
+              onIonChange={e => setForm({ ...form, occasion: e.detail.value! })}
+              interface="modal"
+            >
+              <IonSelectOption value="शादी">शादी</IonSelectOption>
+              <IonSelectOption value="पूजा/कीर्तन">पूजा/कीर्तन</IonSelectOption>
+              <IonSelectOption value="श्राद्ध">श्राद्ध</IonSelectOption>
+              <IonSelectOption value="सामाजिक कार्य">सामाजिक कार्य</IonSelectOption>
+              <IonSelectOption value="अन्य">अन्य</IonSelectOption>
+            </IonSelect>
+          </IonItem>
         )}
 
         {selectedType === "Ambulance" && (
           <>
             <IonItem>
-              <IonLabel position="floating">Disease रोग के बारे में</IonLabel>
+              <IonLabel position="floating" className="hlm">Disease रोग के बारे में</IonLabel>
               <IonInput
                 value={form.disease}
                 onIonChange={e => setForm({ ...form, disease: e.detail.value! })}
               />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">From कहाँ से</IonLabel>
+              <IonLabel position="floating" className="hlm">From कहाँ से</IonLabel>
               <IonInput
                 value={form.from}
                 onIonChange={e => setForm({ ...form, from: e.detail.value! })}
               />
             </IonItem>
             <IonItem>
-              <IonLabel position="floating">To कहाँ तक</IonLabel>
+              <IonLabel position="floating" className="hlm">To कहाँ तक</IonLabel>
               <IonInput
                 value={form.to}
                 onIonChange={e => setForm({ ...form, to: e.detail.value! })}
@@ -1334,7 +1334,7 @@ const Booking: React.FC = () => {
           </>
         )}
         <IonItem>
-          <IonLabel position="floating">Name नाम</IonLabel>
+          <IonLabel position="floating" className="hlm">Name नाम</IonLabel>
           <IonInput
             value={form.name}
             onIonChange={e => setForm({ ...form, name: e.detail.value! })}
@@ -1342,15 +1342,16 @@ const Booking: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonLabel position="floating">Mobile मोबाइल</IonLabel>
+          <IonLabel position="floating" className="hlm">Mobile मोबाइल</IonLabel>
           <IonInput
             value={form.mobile}
+            maxlength={10}
             onIonChange={e => setForm({ ...form, mobile: e.detail.value! })}
           />
         </IonItem>
 
         <IonItem>
-          <IonLabel position="floating">Email (Optional) ई-मेल (स्वैक्षिक)</IonLabel>
+          <IonLabel position="floating" className="hlm">Email (Optional) ई-मेल (स्वैक्षिक)</IonLabel>
           <IonInput
             value={form.email}
             onIonChange={e => setForm({ ...form, email: e.detail.value! })}
@@ -1358,7 +1359,7 @@ const Booking: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonLabel position="floating">Date दिनांक</IonLabel>
+          <IonLabel position="floating" className="hlm">Date & Time दिनांक</IonLabel>
           <IonInput
             value={form.date}
             onClick={() => setIsOpen(true)} // Open modal when clicked
@@ -1386,7 +1387,7 @@ const Booking: React.FC = () => {
 
         {/* Select Block, Panchayat, and Village */}
         <IonItem>
-          <IonLabel position="floating">Block ब्लॉक</IonLabel>
+          <IonLabel position="floating" className="hlm">Block ब्लॉक</IonLabel>
           <IonSelect
             value={selectedBlock}
             onIonChange={e => {
@@ -1405,7 +1406,7 @@ const Booking: React.FC = () => {
 
         {selectedBlock && (
           <IonItem>
-            <IonLabel position="floating">Panchayat पंचायत</IonLabel>
+            <IonLabel position="floating" className="hlm">Panchayat पंचायत</IonLabel>
             <IonSelect
               value={selectedPanchayat}
               onIonChange={e => {
@@ -1425,7 +1426,7 @@ const Booking: React.FC = () => {
 
         {selectedPanchayat && (
           <IonItem>
-            <IonLabel position="floating">Village ग्राम</IonLabel>
+            <IonLabel position="floating" className="hlm">Village ग्राम</IonLabel>
             <IonSelect
               value={selectedVillage}
               onIonChange={e => {
@@ -1448,7 +1449,7 @@ const Booking: React.FC = () => {
 
         {/* New fields for reference */}
         <IonItem>
-          <IonLabel position="floating">Reference Name रेफ़्रेन्स नाम</IonLabel>
+          <IonLabel position="floating" className="hlm">Reference Name रेफ़्रेन्स नाम</IonLabel>
           <IonInput
             value={form.referenceName}
             onIonChange={e => setForm({ ...form, referenceName: e.detail.value! })}
@@ -1456,9 +1457,10 @@ const Booking: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonLabel position="floating">Reference Mobile रेफ़्रेन्स मोबाइल</IonLabel>
+          <IonLabel position="floating" className="hlm">Reference Mobile रेफ़्रेन्स मोबाइल</IonLabel>
           <IonInput
             value={form.referenceMobile}
+            maxlength={10}
             onIonChange={e => setForm({ ...form, referenceMobile: e.detail.value! })}
           />
         </IonItem>
