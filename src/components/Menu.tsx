@@ -30,6 +30,8 @@ import {
   createSharp,
   fileTrayOutline,
   fileTraySharp,
+  callOutline,
+  callSharp,
 } from 'ionicons/icons';
 import { jwtDecode } from 'jwt-decode';
 import './Menu.css';
@@ -61,6 +63,12 @@ const Menu: React.FC = () => {
       url: '/Track',
       iosIcon: documentOutline,
       mdIcon: documentSharp,
+    },
+    {
+      title: 'Contact Us',
+      url: '/Contact',
+      iosIcon: callOutline,
+      mdIcon: callSharp,
     },
     {
       title: 'Login',

@@ -1216,7 +1216,8 @@ const Booking: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    if (!form.name || !form.mobile || !form.block || !form.panchayat || !form.village) {
+    // Validate all fields
+    if (!form.name || !form.mobile || !form.block || !form.panchayat || !form.village || !form.date) {
       setToast({
         message: 'Please fill in all mandatory fields.',
         isOpen: true,
@@ -1224,9 +1225,51 @@ const Booking: React.FC = () => {
       });
       return;
     }
+  
+    // Validate mobile number format (must be 10 digits)
+    if (!/^\d{10}$/.test(form.mobile)) {
+      setToast({
+        message: 'Please enter a valid mobile number.',
+        isOpen: true,
+        duration: 3000,
+      });
+      return;
+    }
+  
+    // Validate email format (if provided)
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setToast({
+        message: 'Please enter a valid email address.',
+        isOpen: true,
+        duration: 3000,
+      });
+      return;
+    }
+  
+    // If 'selectedType' is Ambulance, 'from' and 'to' fields must be filled
+    if (selectedType === 'Ambulance' && (!form.from || !form.to || !form.disease)) {
+      setToast({
+        message: 'Please fill in all fields related to Ambulance.',
+        isOpen: true,
+        duration: 3000,
+      });
+      return;
+    }
+  
+    // If 'selectedType' is Water Tanker, 'occasion' must be selected
+    if (selectedType === 'Water Tanker' && !form.occasion) {
+      setToast({
+        message: 'Please select an occasion for the Water Tanker.',
+        isOpen: true,
+        duration: 3000,
+      });
+      return;
+    }
+  
     // Include selectedType in the form data before submitting
-    const formData = { ...form, bookingType: selectedType };  // Make sure to include bookingType here
-
+    const formData = { ...form, bookingType: selectedType };
+  
+    // Submit the form data to the API
     axios.post('https://preenal.in/api/bookings', formData)
       .then(response => {
         setToast({
@@ -1234,7 +1277,7 @@ const Booking: React.FC = () => {
           isOpen: true,
           duration: 2000,
         });
-
+  
         // Reset the form after successful submission
         resetForm();
       })
@@ -1247,7 +1290,7 @@ const Booking: React.FC = () => {
         });
       });
   };
-
+  
   const handleBlockChange = (blockName: string) => {
     setSelectedBlock(blockName);
     setSelectedPanchayat('');
@@ -1270,7 +1313,7 @@ const Booking: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Booking</IonTitle>
+          <IonTitle>Booking बुकिंग</IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -1351,7 +1394,7 @@ const Booking: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonLabel position="floating" className="hlm">Email (Optional) ई-मेल (स्वैक्षिक)</IonLabel>
+          <IonLabel position="floating" className="hlm">E-Mail (Optional) ई-मेल (स्वैक्षिक)</IonLabel>
           <IonInput
             value={form.email}
             onIonChange={e => setForm({ ...form, email: e.detail.value! })}
@@ -1465,7 +1508,7 @@ const Booking: React.FC = () => {
           />
         </IonItem>
 
-        <IonButton expand="full" onClick={handleSubmit}>Submit</IonButton>
+        <IonButton expand="full" onClick={handleSubmit}>Book Now बुक करें</IonButton>
 
         {/* Toast for success/error messages */}
         <IonToast

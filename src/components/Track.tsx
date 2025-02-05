@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonPage, IonInput, IonButton, IonText, IonItem, IonLabel, IonCard, IonToolbar, IonTitle, IonHeader, IonButtons, IonMenuButton } from '@ionic/react';
-
+import './Booking.css';
 // Define the type for a booking
 interface Booking {
   bookingType: string;
@@ -100,8 +100,8 @@ const Track: React.FC = () => {
       <IonContent fullscreen>
         {/* Input for Mobile Number */}
         <IonItem>
-          <IonLabel position="floating">Mobile Number</IonLabel>
-          <IonInput value={mobile} onIonChange={e => setMobile(e.detail.value!)} type="text" />
+          <IonLabel position="floating" className='hlm'>Mobile मोबाइल</IonLabel>
+          <IonInput value={mobile} onIonChange={e => setMobile(e.detail.value!)} maxlength={10} type="text" />
         </IonItem>
 
         {/* Search Button */}
@@ -129,7 +129,7 @@ const Track: React.FC = () => {
           <IonLabel>Name: {booking.name}</IonLabel>
         </IonItem>
         <IonItem>
-          <IonLabel>Mobile: {booking.mobile}</IonLabel>
+          <IonLabel>Mobile मोबाइल: {booking.mobile}</IonLabel>
         </IonItem>
         {booking.email && (
           <IonItem>
