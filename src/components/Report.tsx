@@ -3,14 +3,16 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardC
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import './Report.css';
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
+const statusMap = ['Under Process', 'Processing', 'Done', 'Cancelled'];
 interface Booking {
   block: string;
   panchayat: string;
   village: string;
+  currentStatus: string;
 }
 
 const Report: React.FC = () => {
@@ -21,21 +23,59 @@ const Report: React.FC = () => {
     villagewise: {}
   });
 
+  const [statusCounts, setStatusCounts] = useState<{ [key: number]: number }>({});
+  const [animatedCounts, setAnimatedCounts] = useState([0, 0, 0, 0]);
+
+  useEffect(() => {
+    if (statusCounts) {
+      const interval = setInterval(() => {
+        setAnimatedCounts((prevCounts) =>
+          prevCounts.map((count, index) => {
+            if (count < statusCounts[index]) {
+              return count + 1;
+            }
+            return count;
+          })
+        );
+      }, 50); // Adjust speed of animation
+
+      return () => clearInterval(interval); // Clean up on component unmount
+    }
+  }, [statusCounts]);
+
+  const getBackgroundColor = (status: any) => {
+    switch (status) {
+      case 'Under Process':
+        return '#f0ad4e'; // Amber
+      case 'Processing':
+        return '#5bc0de'; // Light blue
+      case 'Done':
+        return '#5cb85c'; // Green
+      case 'Cancelled':
+        return '#d9534f'; // Red
+      default:
+        return '#ffffff'; // Default white background
+    }
+  };
+
   useEffect(() => {
     // Fetch data from the API
     axios.get("https://preenal.in/api/bookings")
       .then(response => {
         setBookings(response.data);
         generateReport(response.data);
+        generateTotalCount(response.data);
+
       })
       .catch(err => console.error(err));
+
   }, []);
 
   // Function to generate the report
   const generateReport = (data: any) => {
-    const blockwise = {};
-    const panchayatwise = {};
-    const villagewise = {};
+    const blockwise: { [key: string]: number } = {};
+    const panchayatwise: { [key: string]: number } = {};
+    const villagewise: { [key: string]: number } = {};
 
     data.forEach((booking: any) => {
       // Blockwise count
@@ -53,6 +93,18 @@ const Report: React.FC = () => {
       panchayatwise,
       villagewise
     });
+  };
+
+  // Function to generate the report
+  const generateTotalCount = (data: any) => {
+    // Count the currentStatus values
+    const statusCountMap = data.reduce((acc: { [key: string]: number }, booking: { currentStatus: any; }) => {
+      const status = booking.currentStatus;
+      acc[status] = acc[status] ? acc[status] + 1 : 1;
+      return acc;
+    }, {});
+
+    setStatusCounts(statusCountMap);
   };
 
   // Function to generate chart data
@@ -74,18 +126,38 @@ const Report: React.FC = () => {
 
   return (
     <IonPage>
-          <IonHeader>
-            <IonToolbar>
-              <IonButtons slot="start">
-                <IonMenuButton />
-              </IonButtons>
-              <IonTitle>Booking Report</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent fullscreen>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Booking Report</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
+        <IonCard>
+          <IonCardContent>
+            {/* Displaying status counts */}
+            <div>
+
+              <ul className="status-list">
+                {statusMap.map((status, index) => (
+                  <li key={index} className="status-item" style={{ backgroundColor: getBackgroundColor(status) }}>
+                    <div className="circle">
+                      <span className="count">{animatedCounts[index] || 0}</span>
+                    </div>
+                    <span>{status}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+          </IonCardContent>
+        </IonCard>
         {/* Blockwise Report (Text and Graph) */}
         <IonCard>
           <IonCardContent>
+
             <h2>Blockwise Report</h2>
             <IonList>
               {Object.keys(report.blockwise).map((block, index) => (

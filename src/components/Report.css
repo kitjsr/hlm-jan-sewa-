@@ -1,23 +1,4 @@
-.dashboard-info {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  h2 {
-    font-size: 3rem;
-    color: #3880ff;
-  }
-  
-  IonLabel {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  IonButton {
-    margin-top: 20px;
-  }
-  .status-list {
+.status-list {
     list-style-type: none;
     padding: 0;
   }
@@ -62,5 +43,4 @@
       opacity: 1;
     }
   }
-  
   
