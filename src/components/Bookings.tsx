@@ -88,6 +88,8 @@ const Bookings: React.FC = () => {
                 </p>
                 <p>Mobile : <a href={`tel:${booking.mobile}`}>{booking.mobile}</a></p>
                 <p>Date : {new Date(booking.date).toLocaleString()}</p>
+                {booking.bookingType==="Ambulance" && <><p>From : {booking.from}</p> <p>To : {booking.to}</p></>}
+                {booking.bookingType==="Water Tanker" && <><p>Occasion : {booking.occasion}</p></>}
                 <p>Address : {booking.village}, {booking.panchayat}, {booking.block}</p>
                 <p>Reference : {booking.referenceName}, {booking.referenceMobile}</p>
 
