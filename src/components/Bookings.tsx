@@ -24,6 +24,7 @@ const Bookings: React.FC = () => {
       try {
         const response = await axios.get('https://preenal.in/api/bookings');
         setBookings(response.data);
+        console.log(response.data);
       } catch (error) {
         setError('Error fetching bookings');
         console.error('Error fetching bookings:', error);

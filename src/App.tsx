@@ -41,6 +41,7 @@ import Track from './components/Track';
 import Bookings from './components/Bookings';
 import AdminDashboard from './components/AdminDashboard';
 import Contact from './components/Contact';
+import Report from './components/Report';
 
 setupIonicReact();
 
@@ -77,6 +78,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/AdminDashboard" exact={true}>
               <AdminDashboard />
+            </Route>
+            <Route path="/Report" exact={true}>
+              <Report />
             </Route>
             <Route path="/folder/:name" exact={true}>
               <Page />
