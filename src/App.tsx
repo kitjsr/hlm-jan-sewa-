@@ -42,10 +42,38 @@ import Bookings from './components/Bookings';
 import AdminDashboard from './components/AdminDashboard';
 import Contact from './components/Contact';
 import Report from './components/Report';
-
+import { useEffect, useState } from 'react';
+import { isPlatform } from '@ionic/react';
 setupIonicReact();
-
 const App: React.FC = () => {
+  const [lastTap, setLastTap] = useState<number | null>(null);
+  const [exitMessage, setExitMessage] = useState<string>('');
+
+  const handleBackButton = () => {
+    const currentTime = Date.now();
+    if (lastTap && currentTime - lastTap < 2000) {
+      // Use type assertion to inform TypeScript that navigator.app exists
+      (navigator as any).app.exitApp(); // TypeScript will not complain anymore
+    } else {
+      setLastTap(currentTime);
+      setExitMessage('Press back again to exit');
+      setTimeout(() => {
+        setExitMessage('');
+      }, 2000);
+    }
+  };
+  
+
+  useEffect(() => {
+    const backButtonHandler = () => handleBackButton();
+    document.addEventListener('backbutton', backButtonHandler);
+
+    // Cleanup event listener when the component unmounts
+    return () => {
+      document.removeEventListener('backbutton', backButtonHandler);
+    };
+  }, [lastTap]);
+
   return (
     <IonApp>
       <IonReactRouter>

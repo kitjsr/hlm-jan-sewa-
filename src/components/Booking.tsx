@@ -1273,7 +1273,7 @@ const Booking: React.FC = () => {
     axios.post('https://preenal.in/api/bookings', formData)
       .then(response => {
         setToast({
-          message: 'Booking Successful!',
+          message: 'Booking is Under Process! ',
           isOpen: true,
           duration: 2000,
         });

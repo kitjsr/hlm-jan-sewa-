@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { IonContent, IonPage, IonList, IonItem, IonLabel, IonSelect, IonSelectOption, IonLoading, IonText, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonIcon } from '@ionic/react';
-import { checkmarkCircle, time, checkmark, closeCircle, logoWhatsapp, car, water } from 'ionicons/icons';
+import { IonContent, IonPage, IonList, IonItem, IonLabel, IonSelect, IonSelectOption, IonLoading, IonText, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonIcon, IonRefresher, IonRefresherContent, IonButton } from '@ionic/react';
+import { checkmarkCircle, time, checkmark, closeCircle, logoWhatsapp, car, water, refreshCircle } from 'ionicons/icons';
 import axios from 'axios';
 
 const Bookings: React.FC = () => {
@@ -19,21 +19,19 @@ const Bookings: React.FC = () => {
   };
 
   // Fetch bookings data
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const response = await axios.get('https://preenal.in/api/bookings');
-        setBookings(response.data);
-        console.log(response.data);
-      } catch (error) {
-        setError('Error fetching bookings');
-        console.error('Error fetching bookings:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBookings();
-  }, []);
+  const fetchBookings = async () => {
+    setLoading(true); // Ensure loading is set to true when refreshing
+    try {
+      const response = await axios.get('https://preenal.in/api/bookings');
+      setBookings(response.data);
+      console.log(response.data);
+    } catch (error) {
+      setError('Error fetching bookings');
+      console.error('Error fetching bookings:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Modify the currentStatus of a booking
   const updateCurrentStatus = async (id: string, newStatus: string) => {
@@ -54,6 +52,19 @@ const Bookings: React.FC = () => {
     }
   };
 
+  // Function to handle pull-to-refresh
+  const doRefresh = async (event: CustomEvent) => {
+    await fetchBookings(); // Fetch bookings when refreshing
+    event.detail.complete(); // End the refresh animation
+  };
+  // Function to handle manual refresh button
+  const handleManualRefresh = async () => {
+    await fetchBookings(); // Fetch bookings when refresh button is clicked
+  };
+  useEffect(() => {
+    fetchBookings(); // Initial fetch of bookings data
+  }, []);
+
   return (
     <IonPage>
       <IonHeader>
@@ -68,6 +79,15 @@ const Bookings: React.FC = () => {
       <IonContent fullscreen>
         <IonLoading isOpen={loading} message="Fetching bookings..." />
         {error && <IonText color="danger"><p>{error}</p></IonText>}
+
+        <IonRefresher slot="fixed" pullMin={100} pullMax={200} onIonRefresh={doRefresh}>
+          <IonRefresherContent />
+        </IonRefresher>
+   {/* Refresh button */}
+   <IonButton onClick={handleManualRefresh} expand="block" color="primary" className="refresh-button">
+          <IonIcon icon={refreshCircle} slot="start" />
+          Refresh Bookings
+        </IonButton>
         <IonList>
           {/* Reverse the bookings array before rendering */}
           {bookings.slice().reverse().map(booking => (
@@ -81,7 +101,6 @@ const Bookings: React.FC = () => {
                   <IonIcon icon={iconMap[booking.currentStatus]} color="primary" /> 
                   &nbsp; {statusMap[booking.currentStatus]}
                 </p>
-                {/* <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ambulance" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <circle cx="7" cy="17" r="2" /> <circle cx="17" cy="17" r="2" /> <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" /> <path d="M6 10h4m-2 -2v4" /> </svg> */}
                 <p>
                   Booking Type :  &nbsp;
                   <IonIcon icon={bookingTypeIcons[booking.bookingType.replace(/\s+/g, '')]} color="secondary" /> 

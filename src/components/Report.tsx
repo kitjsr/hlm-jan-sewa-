@@ -8,6 +8,7 @@ import './Report.css';
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 const statusMap = ['Under Process', 'Processing', 'Done', 'Cancelled'];
+
 interface Booking {
   block: string;
   panchayat: string;
@@ -18,9 +19,7 @@ interface Booking {
 const Report: React.FC = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [report, setReport] = useState<any>({
-    blockwise: {},
-    panchayatwise: {},
-    villagewise: {}
+    blockwise: {}
   });
 
   const [statusCounts, setStatusCounts] = useState<{ [key: number]: number }>({});
@@ -65,40 +64,27 @@ const Report: React.FC = () => {
         setBookings(response.data);
         generateReport(response.data);
         generateTotalCount(response.data);
-
       })
       .catch(err => console.error(err));
-
   }, []);
 
-  // Function to generate the report
+  // Function to generate the report (only Blockwise report)
   const generateReport = (data: any) => {
     const blockwise: { [key: string]: number } = {};
-    const panchayatwise: { [key: string]: number } = {};
-    const villagewise: { [key: string]: number } = {};
 
     data.forEach((booking: any) => {
       // Blockwise count
       blockwise[booking.block] = (blockwise[booking.block] || 0) + 1;
-
-      // Panchayatwise count
-      panchayatwise[booking.panchayat] = (panchayatwise[booking.panchayat] || 0) + 1;
-
-      // Villagewise count
-      villagewise[booking.village] = (villagewise[booking.village] || 0) + 1;
     });
 
     setReport({
-      blockwise,
-      panchayatwise,
-      villagewise
+      blockwise
     });
   };
 
-  // Function to generate the report
+  // Function to generate the total status counts
   const generateTotalCount = (data: any) => {
-    // Count the currentStatus values
-    const statusCountMap = data.reduce((acc: { [key: string]: number }, booking: { currentStatus: any; }) => {
+    const statusCountMap = data.reduce((acc: { [key: string]: number }, booking: { currentStatus: any }) => {
       const status = booking.currentStatus;
       acc[status] = acc[status] ? acc[status] + 1 : 1;
       return acc;
@@ -114,13 +100,15 @@ const Report: React.FC = () => {
 
     return {
       labels: labels,
-      datasets: [{
-        label: 'Number of Bookings',
-        data: values,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1
-      }]
+      datasets: [
+        {
+          label: 'Number of Bookings',
+          data: values,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }
+      ]
     };
   };
 
@@ -139,7 +127,6 @@ const Report: React.FC = () => {
           <IonCardContent>
             {/* Displaying status counts */}
             <div>
-
               <ul className="status-list">
                 {statusMap.map((status, index) => (
                   <li key={index} className="status-item" style={{ backgroundColor: getBackgroundColor(status) }}>
@@ -150,15 +137,14 @@ const Report: React.FC = () => {
                   </li>
                 ))}
               </ul>
-
             </div>
           </IonCardContent>
         </IonCard>
+
         {/* Blockwise Report (Text and Graph) */}
         <IonCard>
           <IonCardContent>
-
-            <h2>Blockwise Report</h2>
+            <h1>Blockwise Report</h1>
             <IonList>
               {Object.keys(report.blockwise).map((block, index) => (
                 <IonItem key={index}>
@@ -169,40 +155,6 @@ const Report: React.FC = () => {
               ))}
             </IonList>
             <Bar data={generateChartData(report.blockwise)} />
-          </IonCardContent>
-        </IonCard>
-
-        {/* Panchayatwise Report (Text and Graph) */}
-        <IonCard>
-          <IonCardContent>
-            <h2>Panchayatwise Report</h2>
-            <IonList>
-              {Object.keys(report.panchayatwise).map((panchayat, index) => (
-                <IonItem key={index}>
-                  <IonLabel>
-                    {panchayat}: {report.panchayatwise[panchayat]} Bookings
-                  </IonLabel>
-                </IonItem>
-              ))}
-            </IonList>
-            <Bar data={generateChartData(report.panchayatwise)} />
-          </IonCardContent>
-        </IonCard>
-
-        {/* Villagewise Report (Text and Graph) */}
-        <IonCard>
-          <IonCardContent>
-            <h2>Villagewise Report</h2>
-            <IonList>
-              {Object.keys(report.villagewise).map((village, index) => (
-                <IonItem key={index}>
-                  <IonLabel>
-                    {village}: {report.villagewise[village]} Bookings
-                  </IonLabel>
-                </IonItem>
-              ))}
-            </IonList>
-            <Bar data={generateChartData(report.villagewise)} />
           </IonCardContent>
         </IonCard>
       </IonContent>
